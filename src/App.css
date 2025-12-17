@@ -1,0 +1,94 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  font-family: sans-serif;
+  width: 100%; /* Ensure full width availability */
+}
+
+.toolbar {
+  margin-bottom: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  padding: 8px 12px;
+  cursor: pointer;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.spreadsheet-grid {
+  display: grid;
+  /* Fallback for 10x10 if inline styles miss */
+  grid-template-columns: 50px repeat(10, 100px); 
+  gap: 1px;
+  background-color: #ddd; /* Creates the grey grid lines */
+  border: 1px solid #999;
+  
+  /* Scrollbars if grid gets too big */
+  overflow: auto;
+  max-width: 95vw;
+  max-height: 80vh;
+}
+
+/* --- HEADERS (A, B, C...) --- */
+.header-col {
+  background-color: #f0f0f0;
+  color: black;
+  font-weight: 900;
+  
+  /* Centering Logic */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  height: 30px; /* Match input height */
+  min-width: 80px;
+  user-select: none; /* Prevent accidental highlighting */
+}
+
+/* --- ROW NUMBERS (1, 2, 3...) --- */
+.header-row {
+  background-color: #f0f0f0;
+  color: black;
+  font-weight: 900;
+  
+  /* Centering Logic */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  height: 30px; /* STRICTLY match the input height */
+  min-width: 40px;
+  user-select: none;
+}
+
+/* --- THE INPUT CELLS --- */
+.cell-input {
+  width: 100%;
+  height: 30px; /* STRICTLY match the header height */
+  border: none;
+  padding: 0 5px; /* Padding only on sides */
+  box-sizing: border-box;
+  text-align: left;
+  outline: none;
+  font-size: 14px;
+}
+
+.cell-input:focus {
+  background-color: #e3f2fd; /* Light blue background when typing */
+  outline: 2px solid #2196f3;
+  position: relative;
+  z-index: 10; /* Bring above other borders */
+}
