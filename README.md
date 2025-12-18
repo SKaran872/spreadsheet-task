@@ -1,16 +1,40 @@
-# React + Vite
+# React Spreadsheet Engine
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-performance, functional spreadsheet application built with React. This project implements a reactive calculation engine capable of handling formulas, cell dependencies, and circular reference detection, similar to Excel or Google Sheets.
 
-Currently, two official plugins are available:
+## 🔗 Live Demo
+ https://spreadsheet-task-sub.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Core Functionality
+- **Formula Evaluation:** Supports mathematical expressions using standard operators (e.g., `=A1+B2*3`).
+- **Dependency Graph:** Automatically updates downstream cells when a referenced cell changes (e.g., updating `A1` triggers updates in `B1` and `C1`).
+- **Cycle Detection:** Implements a Depth-First Search (DFS) algorithm to detect and block circular references (e.g., `A1` referencing `B1` referencing `A1`) to prevent infinite loops.
+- **Error Handling:** Gracefully handles invalid formulas and errors with clear indicators (`#ERROR`, `#CIRCULAR`).
 
-## Expanding the ESLint configuration
+### 🏆 Bonus Features (Completed)
+- **Time Travel (Undo/Redo):** Complete history stack allows users to undo and redo changes state-by-state.
+- **Dynamic Grid:** Users can extend the grid dynamically by adding columns and rows beyond the default size.
+- **Performance Optimization:** Implemented `React.memo` and `useCallback` to ensure only affected cells re-render, optimizing performance for larger grids.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tech Stack
+- **Frontend:** React, Vite
+- **Logic:** Custom Graph algorithms for dependency resolution
+- **Math Library:** `mathjs` (for safe expression parsing)
+- **Styling:** CSS3 (Grid & Flexbox)
+
+---
+
+## ⚙️ Installation & Running
+
+Follow these steps to run the project locally:
+
+1. **Clone the repository:**
+   ```bash
+   git clone <YOUR_GITHUB_REPO_LINK>
+   cd spreadsheet-task
